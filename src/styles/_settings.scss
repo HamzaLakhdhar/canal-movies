@@ -1,0 +1,32 @@
+@font-face {
+  font-family: "font";
+  src: url(../assets/fonts/Futura-Bold-Oblique.otf) format('truetype');
+}
+
+$font-1: "Hind","San Francisco","Roboto","Arial",sans-serif;
+
+$color-1: #565b70;
+$color-2: #000000;
+$color-3: rgb(100, 100, 100);
+$black: #343537;
+$white: rgb(238, 238, 238);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font-1;
+}
+
+body {
+  background: $color-2;
+  color: $white;
+}
+li {
+  list-style: none;
+}
+.result {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

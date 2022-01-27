@@ -1,0 +1,88 @@
+.form-component {
+  .form-container {
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 2px;
+    display: inherit;
+  }
+  .form-inline {
+    margin-left: 40%;
+    display: table-footer-group;
+    flex-flow: row wrap;
+    align-items: flex-start;
+  }
+  form {
+    width: 300px;
+    margin-left: 40% ;
+
+    input[type="text"] {
+      padding: 1px 10px;
+      border-radius: 10px 10px 10px 10px;
+      border: none;
+      font-size: 1.5rem;
+      display: inline;
+      margin: 0 auto;
+      width: 220px;
+      outline: none;
+      text-align: center;
+      margin-left: 20px;
+    }
+    input[type="submit"] {
+      padding: 1px 10px;
+      width: 220px;
+      border-radius: 10px 10px;
+      border: none;
+      background: $color-1;
+      color: $white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 10;
+      position: relative;
+      margin-left: 5px;
+
+      &:hover {
+        background: $black;
+      }
+    }
+  }
+  .btn-sort-container {
+    margin-left: 82.9%;
+    margin-bottom: 15px;
+    margin-top: 50px;
+    width: 220px;
+    display: flex;
+    justify-content: space-around;
+    cursor: pointer;
+
+    #goodToBad {
+      border-radius: 10px 0 0 10px;
+    }
+    #badToGood {
+      border-radius: 0 10px 10px 0;
+    }
+    #goodToBad,
+    #badToGood {
+      background: $color-1;
+      width: 110px;
+      transition: 0.3s;
+      position: relative;
+
+      &:hover {
+        background: $black;
+      }
+    }
+    #goodToBad span {
+      transform: translateY(-50%) rotate(-90deg);
+      right: 18px;
+    }
+    #badToGood span {
+      transform: translateY(-50%) rotate(90deg);
+      left: 16px;
+    }
+    #goodToBad span,
+    #badToGood span {
+      position: absolute;
+      top: 50%;
+    }
+  }
+}

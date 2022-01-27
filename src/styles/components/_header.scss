@@ -1,0 +1,59 @@
+.header {
+  h1 {
+    font-family: font;
+    font-size: 3.3rem;
+    text-align: left;
+    letter-spacing: 2px;
+    margin-left: 20px;
+    margin-bottom: 22px;
+  }
+  .movies {
+    font-family: font;
+    font-size: 1.7rem;
+    text-align: left;
+    letter-spacing: 1px;
+    margin-left: 1px;
+    margin-bottom: 22px;
+  }
+  nav {
+    position: absolute;
+    top: 16px;
+    left: 70%;
+    font-size: 1.3rem;
+    img {
+      margin: 10px;
+      height: auto;
+      width: auto;
+      position: fixed;
+    }
+    ul {
+      display: inline-flex;
+      margin-left: 100%;
+      margin-top: 10px;
+
+      a {
+        text-decoration: none;
+        color: $white;
+        border-radius: 10px;
+        width: 102px;
+        text-align: center;
+        margin-right: 5px;
+
+        &:visited {
+          text-decoration: none;
+          color: $white;
+        }
+        &:hover {
+          background: $black;
+        }
+      }
+      a.nav-active {
+        background: $color-1;
+
+        &:hover {
+          background: $black;
+        }
+      }
+    }
+  }
+}
