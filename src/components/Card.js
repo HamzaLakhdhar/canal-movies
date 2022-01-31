@@ -94,11 +94,12 @@ const Card = ({ movie }) => {
     }
   };
 
-  
+  // Supprimer un élément de l'espace de stockage
   const deleteStorage = () => {
     let storedData = window.localStorage.movies.split(",");
+    // filter le storedData sans l'id du film à supprimer
     let newData = storedData.filter((id) => id != movie.id);
-
+    // Restocker les nouveaux données filtrés -> espace de stockage navigateur
     window.localStorage.movies = newData;
   };
 
@@ -133,7 +134,9 @@ const Card = ({ movie }) => {
       {/* Genre du film */}
       <ul>
         {movie.genre_ids
+          // case : API search by name film
           ? genreFinder()
+          // case : API search by id
           : movie.genres.map((genre, index) => (
               <li key={index}>{genre.name}</li>
             ))}
@@ -143,16 +146,22 @@ const Card = ({ movie }) => {
       {movie.overview ? <h3>Synopsis</h3> : ""}
       <p>{movie.overview}</p>
 
+      {/* Conditionner l'affichage du bouton */}
       {movie.genre_ids ? (
+        // si existe btn ajouter l'élément (page d'accueil)
         // onClick : ajouter l'élément à l'espace de stockage
         <div className="btn" onClick={() => addStorage()}>
           Ajouter aux favoris
         </div>
       ) : (
+        // sinon btn supprimer l'élément (page favoris)
         <div
           className="btn"
+          // onClick : supprimer l'élément de l'espace de stockage
           onClick={() => {
             deleteStorage();
+            // Recharger la page pour supprimer l'élément de la page
+            // pas une bonne pratique -> (useContext / Redux)
             window.location.reload();
           }}
         >
