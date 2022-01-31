@@ -12,7 +12,8 @@ const Form = () => {
       .get(
         `https://api.themoviedb.org/3/search/movie?api_key=ed82f4c18f2964e75117c2dc65e2161d&query=${search}&language=fr-FR`
       )
-      .then((res) => setMoviesData(res.data.results));
+      .then((res) => setMoviesData(res.data.results))
+      .catch(err => console.log(err.response));
   }, [search]);
 
   return (
