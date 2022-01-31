@@ -17,7 +17,8 @@ const UserList = () => {
         .get(
           `https://api.themoviedb.org/3/movie/${moviesId[i]}?api_key=b2ee0afae7757bcb024f7dbdf1ab083a&language=fr-FR`
         )
-        .then((res) => setListData((listData) => [...listData, res.data]));
+        .then((res) => setListData((listData) => [...listData, res.data]))
+        .catch(err => console.log(err.response));
     }
   }, []);
 

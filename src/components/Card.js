@@ -1,11 +1,14 @@
 import React from "react";
 
 const Card = ({ movie }) => {
+
+  // Formater la date de yyyy-mm-dd -> dd/mm/yyyy
   const dateFormater = (date) => {
     let [yy, mm, dd] = date.split("-");
     return [dd, mm, yy].join("/");
   };
 
+  // Mettre les genres du film dans un tableau suivant l'id du genre
   const genreFinder = () => {
     let genreArray = [];
     for (let i = 0; i < movie.genre_ids.length; i++) {
@@ -71,20 +74,27 @@ const Card = ({ movie }) => {
           break;
       }
     }
+    // retourner une liste de genre
     return genreArray.map((genre) => <li key={genre}>{genre}</li>);
   };
 
+  // Stocker les id des films favoris dans l'espace de stockage du navigateur
   const addStorage = () => {
+    // Récupérer ce qui dèja était stocker
     let storedData = window.localStorage.movies
+      // si storedData existe -> split tableau
       ? window.localStorage.movies.split(",")
+      // sinon crée un tableau vide
       : [];
 
-    if (!storedData.includes(movie.id.toString())) {
+      // Ajouter l'id (s'il n'existe pas) -> storedData
+      if (!storedData.includes(movie.id.toString())) {
       storedData.push(movie.id);
       window.localStorage.movies = storedData;
     }
   };
 
+  
   const deleteStorage = () => {
     let storedData = window.localStorage.movies.split(",");
     let newData = storedData.filter((id) => id != movie.id);
@@ -94,6 +104,8 @@ const Card = ({ movie }) => {
 
   return (
     <div className="card">
+
+      {/* si pas d'affiche -> mettre photo générique */}
       <img
         src={
           movie.poster_path
@@ -102,16 +114,23 @@ const Card = ({ movie }) => {
         }
         alt="affiche film"
       />
+
+      {/* Titre du film */}
       <h2>{movie.title}</h2>
+
+      {/* Date de sortie : si pas de date -> "" */}
       {movie.release_date ? (
         <h5>Sorti le : {dateFormater(movie.release_date)}</h5>
       ) : (
         ""
       )}
+
+      {/* Note/classement du film */}
       <h4>
         {movie.vote_average}/10 <span>⭐</span>
       </h4>
 
+      {/* Genre du film */}
       <ul>
         {movie.genre_ids
           ? genreFinder()
@@ -119,10 +138,13 @@ const Card = ({ movie }) => {
               <li key={index}>{genre.name}</li>
             ))}
       </ul>
+
+      {/* Synopsis : si elle n'existe pas -> "" */}
       {movie.overview ? <h3>Synopsis</h3> : ""}
       <p>{movie.overview}</p>
 
       {movie.genre_ids ? (
+        // onClick : ajouter l'élément à l'espace de stockage
         <div className="btn" onClick={() => addStorage()}>
           Ajouter aux favoris
         </div>
