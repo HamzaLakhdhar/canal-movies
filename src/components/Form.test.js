@@ -8,7 +8,7 @@ describe('Form', () => {
     //jest.mock('axios')
     test('API test', async () => {
         /*axios.get.mockImplementation(url => {
-            if (url === 'https://api.themoviedb.org/3/search/movie?api_key=ed82f4c18f2964e75117c2dc65e2161d') {
+            if (url === 'https://api.themoviedb.org/3/search/movie?api_key=b2ee0afae7757bcb024f7dbdf1ab083a') {
                 return Promise.resolve({ data: { page: '1' } });
             }
         })*/

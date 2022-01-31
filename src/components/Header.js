@@ -5,8 +5,10 @@ const Header = () => {
   return (
     <div className="header">
       <h1>CANAL <span className="movies">Movies</span></h1>
+      {/* Navigation */}
       <nav>
         <ul>
+          {/* nav-active : styliser le lien actif */}
           <NavLink
             to="/"
             className={(nav) => (nav.isActive ? "nav-active" : "")}

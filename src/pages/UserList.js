@@ -15,7 +15,7 @@ const UserList = () => {
     for (let i = 0; i < moviesId.length; i++) {
       axios
         .get(
-          `https://api.themoviedb.org/3/movie/${moviesId[i]}?api_key=ed82f4c18f2964e75117c2dc65e2161d&language=fr-FR`
+          `https://api.themoviedb.org/3/movie/${moviesId[i]}?api_key=b2ee0afae7757bcb024f7dbdf1ab083a&language=fr-FR`
         )
         .then((res) => setListData((listData) => [...listData, res.data]));
     }
